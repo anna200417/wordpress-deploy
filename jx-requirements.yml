@@ -1,0 +1,6 @@
+cluster: minikube
+namespace: jx
+ingress:
+  domain: 127.0.0.1.nip.io
+gitops:
+  gitURL: https://github.com/anna200417/wordpress-deploy.git
