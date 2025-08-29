@@ -6,17 +6,15 @@ spec:
   template:
     spec:
       serviceAccountName: jx-git-operator
-      restartPolicy: Never
       containers:
       - name: jx-boot
-        image: ghcr.io/jenkins-x/jx-boot:3.10.104
-        imagePullPolicy: IfNotPresent
-        command:
-        - jx
+        image: ghcr.io/jenkins-x/jx-boot:3.10.122
+        imagePullPolicy: Always
+        args:
         - boot
-        - run
         env:
         - name: GIT_URL
           value: https://github.com/anna200417/wordpress-deploy.git
-        - name: GIT_BRANCH
-          value: main
+        - name: GIT_REF
+          value: master
+      restartPolicy: Never
