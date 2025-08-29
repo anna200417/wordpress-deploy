@@ -1,6 +1,11 @@
-cluster: minikube
-namespace: jx
-ingress:
-  domain: 127.0.0.1.nip.io
-gitops:
-  gitURL: https://github.com/anna200417/wordpress-deploy.git
+apiVersion: jenkins.io/v1
+kind: Environment
+metadata:
+  name: dev
+spec:
+  namespace: jx
+  promotionStrategy: Never
+  git:
+    url: https://github.com/anna200417/wordpress-deploy.git
+  cluster:
+    name: minikube
